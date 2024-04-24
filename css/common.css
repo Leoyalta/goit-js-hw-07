@@ -199,6 +199,7 @@ img {
 }
 
 #boxes {
+  
   border-radius: 8px;
   background-color: #f6f6fe;
   display: flex;

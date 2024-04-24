@@ -31,15 +31,19 @@ function destroyBoxes() {
   boxesContainer.innerHTML = '';
 }
 
-function createBoxes(amount) {
-  let size = 30;
-
-  for (let i = 0; i < amount; i++) {
-    const box = document.createElement('div');
-    box.style.width = `${size}px`;
-    box.style.height = `${size}px`;
-    box.style.backgroundColor = getRandomHexColor();
-    boxesContainer.appendChild(box);
-    size += 10;
+  function createBoxes(amount) {
+    let size = 30;
+    let fragment = document.createDocumentFragment(); // Створити фрагмент документа для зберігання всіх нових елементів
+  
+    for (let i = 0; i < amount; i++) {
+      const box = document.createElement('div');
+      box.style.width = `${size}px`;
+      box.style.height = `${size}px`;
+      box.style.backgroundColor = getRandomHexColor();
+      fragment.appendChild(box); // Додати нову коробку до фрагменту
+      size += 10;
+    }
+  
+    boxesContainer.appendChild(fragment); // Додати всі нові коробки однією операцією
   }
-}
+
